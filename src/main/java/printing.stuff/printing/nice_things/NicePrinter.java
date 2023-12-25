@@ -16,7 +16,7 @@ public class NicePrinter {
 	}
 	
 	public void printMessage(boolean withNewLine) {
-		String appendix = (withNewLine) ? "\n" : ""
+		String appendix = (withNewLine) ? "\n" : "";
 		System.out.print(this.message + appendix);
 	}
 	
@@ -31,9 +31,11 @@ public class NicePrinter {
 				np = new NicePrinter(args[0]);
 				np.printMessage(true);
 			case 0:
-				np = new NicePrinter("Hallo Welt")
+				np = new NicePrinter("Hallo Welt");
 				np.printMessage(false);
 		}
 	}
+	
+}
 				
 				
