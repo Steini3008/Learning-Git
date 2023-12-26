@@ -1,6 +1,8 @@
 package printing.nice_things;
 
-public class HelloPrinter implements INicePrinter {
+import printing.spi.IPrinter;
+
+public class HelloPrinter implements IPrinter {
 	private String message;
 	
 	public HelloPrinter() {}

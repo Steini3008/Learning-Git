@@ -1,8 +1,8 @@
 module printing.stuff {
-	exports printing.nice_things;
+	exports printing.spi;
 	
-	uses printing.nice_things.INicePrinter;
+	uses printing.spi.IPrinter;
 	
-	provides printing.nice_things.INicePrinter with printing.nice_things.HelloPrinter;
+	provides printing.spi.IPrinter with printing.nice_things.HelloPrinter;
 	
 }

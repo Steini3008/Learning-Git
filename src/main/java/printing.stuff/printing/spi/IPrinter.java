@@ -1,7 +1,7 @@
-package printing.nice_things;
+package printing.spi;
 
 @FunctionalInterface
-public interface INicePrinter {
+public interface IPrinter {
 	
 	public void printMessage();
 	
