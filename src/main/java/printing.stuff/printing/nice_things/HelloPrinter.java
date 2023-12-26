@@ -1,9 +1,11 @@
 package printing.nice_things;
 
-public class NicePrinter {
+public class HelloPrinter implements INicePrinter {
 	private String message;
 	
-	public NicePrinter(String message) {
+	public HelloPrinter() {}
+	
+	public HelloPrinter(String message) {
 		this.message = message;
 	}
 	
@@ -15,24 +17,21 @@ public class NicePrinter {
 		this.message = message;
 	}
 	
+	public void printMessage() {
+		this.printMessage(true);
+	}
+	
 	public void printMessage(boolean withNewLine) {
 		String appendix = (withNewLine) ? "\n" : "";
 		System.out.print(this.message + appendix);
 	}
 	
 	public static void main(String[] args) {
-		NicePrinter np;
-		switch (args.length) {
-			case 2:
-				np = new NicePrinter(args[1]);
-				np.printMessage(true);
-				break;
-			case 1:
-				np = new NicePrinter(args[0]);
-				np.printMessage(true);
-			case 0:
-				np = new NicePrinter("Hallo Welt");
-				np.printMessage(false);
+		HelloPrinter hiPrinter = new HelloPrinter();
+		String greeting = "Hallo";
+		for (String hiRecipient : args) {
+			hiPrinter.setMessage(greeting + " " + hiRecipient);
+			hiPrinter.printMessage();
 		}
 	}
 	
