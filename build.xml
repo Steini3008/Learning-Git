@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Print-Messages" basedir="." default="jar">
+
+    <property name="src.dir" location="src/main/java"/>
+
+    <property name="build.dir"   location="build"/>
+    <property name="classes.dir" location="${build.dir}/classes"/>
+    <property name="jar.dir"     location="${build.dir}/jar"/>
+	
+	<property name="printing.moduleName" value="printing.stuff"/>
+	
+    <property name="main-class"  value="printing.nice_things.HelloPrinter"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+	
+	<target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+		<mkdir dir="${jar.dir}"/>
+    </target>
+	
+    <target name="compile" depends="init">
+        <javac modulesourcepath="${src.dir}" destdir="${classes.dir}"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jar.dir}/printing-stuff.jar" basedir="${classes.dir}/${printing.moduleName}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${jar.dir}/printing-stuff.jar" fork="true"/>
+    </target>
+
+</project>
